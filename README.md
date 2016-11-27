@@ -17,7 +17,8 @@ const body = require('stream-body')
 const url = 'http://nodejs.org/dist/index.json'
 
 http.get(url, res => body.parse(res, (err, data) => {
-  // ...do something.
+
+  // ...`data` will be a json object.
 }))
 ```
 
@@ -28,7 +29,7 @@ parser implemintation is defined on the `parsers` member...
 ```js
 const body = require('stream-body')
 
-body.parsers[application/json'] = function (data, opts, cb) {
+body.parsers['application/json'] = function (data, opts, cb) {
 
   // `data` is the raw data object
   // `opts` is any options passed in to the parse function
