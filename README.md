@@ -5,6 +5,9 @@ Get the complete body from a stream and parse it automatically.
 A minimal wrapper around [raw-body](https://github.com/stream-utils/raw-body)
 that provides you with the correct parser.
 
+# BUILD STATUS
+[![Build Status](https://travis-ci.org/0x00A/stream-body.svg?branch=master)](https://travis-ci.org/0x00A/stream-body)
+
 # USAGE
 This module detects the content type of the stream and parses it appropriately.
 So for instance, if you request a resource with a `content-type` header which
