@@ -47,7 +47,8 @@ api.parsers['application/json'] = function (str, opts, cb) {
   cb(null, json)
 }
 
-api.parsers['text/plain'] = function (str, opts, cb) {
+api.parsers['text/plain'] =
+api.parsers['text/html'] = function (str, opts, cb) {
   cb(null, str)
 }
 
