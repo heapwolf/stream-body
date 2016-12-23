@@ -15,7 +15,8 @@ api.parse = function parse (stream, opts, cb) {
     : null
 
   // detect which parser to use.
-  var contentType = stream.headers['content-type'].split(';')[0].trim()
+  var contentType = (stream.headers['content-type'] &&
+    stream.headers['content-type'].split(';')[0].trim()) || 'text/plain'
 
   if (!api.parsers[contentType]) {
     return cb(new Error('No parser defined for that content-type!'))
