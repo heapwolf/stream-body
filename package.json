@@ -1,6 +1,6 @@
 {
   "name": "stream-body",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "parse a stream correctly (according to the content-type) using raw-body",
   "main": "index.js",
   "scripts": {

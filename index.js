@@ -37,6 +37,8 @@ api.parse = function parse (stream, opts, cb) {
 api.parsers = {}
 
 api.parsers['application/json'] = function (str, opts, cb) {
+  if (str.trim() === '') str = 'null'
+
   var reviver = opts.reviver || null
   var json
 
