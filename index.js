@@ -15,8 +15,15 @@ api.parse = function parse (stream, opts, cb) {
     : null
 
   // detect which parser to use.
-  var contentType = (stream.headers['content-type'] &&
-    stream.headers['content-type'].split(';')[0].trim()) || 'text/plain'
+  var contentTypeRaw = stream &&
+    stream.headers &&
+    stream.headers['content-type']
+
+  if (typeof contentTypeRaw === 'string') {
+    contentTypeRaw = contentTypeRaw.split(';')
+  }
+
+  var contentType = (contentTypeRaw[0].trim() || 'text/plain')
 
   if (!api.parsers[contentType]) {
     return cb(new Error('No parser defined for that content-type!'))
@@ -60,4 +67,3 @@ api.parsers['application/x-www-form-urlencoded'] = function (obj, opts, cb) {
   var eq = opts.eq || null
   cb(null, qsp(obj, sep, eq, opts))
 }
-
