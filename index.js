@@ -23,7 +23,7 @@ api.parse = function parse (stream, opts, cb) {
     contentTypeRaw = contentTypeRaw.split(';')
   }
 
-  var contentType = (contentTypeRaw[0].trim() || 'text/plain')
+  var contentType = (contentTypeRaw && contentTypeRaw[0].trim()) || 'text/plain'
 
   if (!api.parsers[contentType]) {
     return cb(new Error('No parser defined for that content-type!'))
